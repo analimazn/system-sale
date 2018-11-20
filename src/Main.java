@@ -1,21 +1,23 @@
-import java.util.ArrayList;
-import java.lang.Iterable;
 import enums.EnumUser;
-import entities.Client;
+import entities.User;
 import entities.Finance;
-import models.modelEntities.ModelClient;
+import models.modelEntities.ModelUser;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Client adminOne = new Client(EnumUser.Admin, "analimazn", "@123", "3030", "Ana Lima");
-		Client clientOne = new Client(EnumUser.Client, "pneuscia", "#123", "3742834950001", "Pneus CIA");
+		User adminOne = new User(EnumUser.Admin, "analimazn", "@123", "3030", "Ana Lima");
+		User clientTwo = new User(EnumUser.Client, "analimazn", "@123", "3030", "Ana Lima");
+		User clientOne = new User(EnumUser.Client, "pneuscia", "#123", "3742834950001", "Pneus CIA");
 		
-		ModelClient arrClients = new ModelClient();
+		ModelUser dataBaseUser = new ModelUser();
 		
-		arrClients.addClient(adminOne);
-
+		dataBaseUser.addUser(adminOne);
+		dataBaseUser.addUser(clientOne);
+		dataBaseUser.addUser(clientTwo);
+		
+		System.out.println(dataBaseUser.getAllUsers());
 	}
 
 }

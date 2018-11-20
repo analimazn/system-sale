@@ -10,7 +10,7 @@ public class Finance {
 	public Finance(String cnpj, String socialReason, EnumUser finance) {
 		this.cnpj = cnpj;
 		this.socialReason = socialReason;
-		this.user = finance;f
+		this.user = finance;
 	}
 
 	public EnumUser getUser() {
