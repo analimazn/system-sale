@@ -3,15 +3,25 @@ package entities;
 import enums.EnumUser;
 
 public class User extends Cadaster{
-	public EnumUser user;
-	public String identifier;
-	public String name;
+	private EnumUser usertype;
+	private String identifier;
+	private String name;
+	private String cnpjCpf;
 	
-	public User(EnumUser user, String username, String password, String identifier, String name) {
+	public User(String username, String password, EnumUser usertype, String identifier, String name, String cnpjCpf) {
 		super(username, password);
+		this.usertype = usertype;
 		this.identifier = identifier;
 		this.name = name;
-		this.user = user;
+		this.cnpjCpf = cnpjCpf;
+	}
+
+	public String getCnpjCpf() {
+		return cnpjCpf;
+	}
+
+	public void setCnpjCpf(String cnpjCpf) {
+		this.cnpjCpf = cnpjCpf;
 	}
 
 	public String getIdentifier() {
@@ -30,11 +40,20 @@ public class User extends Cadaster{
 		this.name = name;
 	}
 
-	public EnumUser getUser() {
-		return user;
+	public EnumUser getUserType() {
+		return usertype;
 	}
 
-	public void setUser(EnumUser user) {
-		this.user = user;
+	public void setUserType(EnumUser usertype) {
+		this.usertype = usertype;
+	}
+	
+	public String getUser() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Name: "+this.name).append("\n");
+		sb.append("CNPJ/CPF: "+this.cnpjCpf).append("\n");
+		sb.append("Usertype: "+this.usertype).append("\n");
+		sb.append("Username: "+super.getUsername()).append("\n");
+		return sb.toString();
 	}
 }
