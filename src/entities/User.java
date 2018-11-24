@@ -4,14 +4,14 @@ import enums.EnumUser;
 
 public class User extends Cadaster{
 	private EnumUser usertype;
-	private String identifier;
+	private String id;
 	private String name;
 	private String cnpjCpf;
 	
-	public User(String username, String password, EnumUser usertype, String identifier, String name, String cnpjCpf) {
+	public User(String username, String password, EnumUser usertype, String id, String name, String cnpjCpf) {
 		super(username, password);
 		this.usertype = usertype;
-		this.identifier = identifier;
+		this.id = id;
 		this.name = name;
 		this.cnpjCpf = cnpjCpf;
 	}
@@ -24,12 +24,12 @@ public class User extends Cadaster{
 		this.cnpjCpf = cnpjCpf;
 	}
 
-	public String getIdentifier() {
-		return identifier;
+	public String getId() {
+		return id;
 	}
 
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getName() {

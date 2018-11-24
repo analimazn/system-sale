@@ -2,73 +2,67 @@ package models.modelEntities;
 
 import java.util.LinkedList;
 import java.util.List;
-
 import entities.User;
 
 public class ModelUser {
 	static List<User> list = new LinkedList<User>();
 	
-	public static Boolean validateUser(User user) {
-		for(User name : list) {
-		   if(name.getIdentifier()
-				   .equals(user.getIdentifier()) && name.getUsername()
-				   .equals(user.getUsername())) {
+	public static Boolean validateUser(User objUser) {
+		for(User user : list) {
+		   if(user.getUser().equals(objUser.getUser())) {
 			   System.out.println("Usuário encontrado");
-			   System.out.println(user.getUser());
+			   System.out.println(objUser.getUser());
 			   return true;
 		    }
 		}
 		System.out.println("Usuário não encontrado");
-		System.out.println(user.getUser());
+		System.out.println(objUser.getUser());
 		return false;
 	}
 	
-	public static void addUser(User user) {
-		System.out.println("FUNÇAO ADD USER");
-		if(!validateUser(user)) {
-			list.add(user);
+	public static void addUser(User objUser) {
+		if(!validateUser(objUser)) {
+			list.add(objUser);
 			System.out.println("Usuário cadastrado com sucesso");
-			System.out.println(user.getUser());
+			System.out.println(objUser.getUser());
+		} else {
+			System.out.println("Usuário não cadastrado");
 		}
 	}
 	
-	public static User findUser(String identifier) {
-		System.out.println("FUNÇAO FIND USER");
+	public static User findUser(String id) {
 		list.stream()
-			.filter(user -> {
-				if(user.getIdentifier() == identifier) {
-					return user != null;
+			.filter(objUser -> {
+				if(objUser.getId() == id) {
+					return objUser != null;
 				}
 				return false;
 			})
-			.forEach(user -> {
+			.forEach(objUser -> {
 				System.out.println("Usuário");
-				System.out.println(user.getUser());
+				System.out.println(objUser.getUser());
 			});
 		return null;
 	}
 	
-	public static void getListUsers() {
-		System.out.println("FUNÇAO GET ALL USERS");
+	public static void getListUser() {
 		if (list.size() > 0) {
 			System.out.println("Todos os usuários");
-			for(User user : list) {
-				System.out.println(user.getUser());
+			for(User objUser : list) {
+				System.out.println(objUser.getUser());
 			}
 		} else {
 			System.out.println("Sem usuários");
 		}
-		
 	}
 	
 	public static void updateUser(User change) {
-		System.out.println("FUNÇAO UPDATE USER");
-		for (User user : list) {
-			if (validateUser(user) && user.getIdentifier()
-					.equals(change.getIdentifier())) {
-				System.out.println("Atualizar user");
-				System.out.println(user.getUser());
-				list.set(list.indexOf(user), change);
+		for (User objUser : list) {
+			if (validateUser(objUser) && objUser.getId()
+					.equals(change.getId())) {
+				System.out.println("Atualizar Usuário");
+				System.out.println(objUser.getUser());
+				list.set(list.indexOf(objUser), change);
 			}  else {
 				System.out.println("Usuário não encontrado no sistema");
 			}
@@ -77,13 +71,12 @@ public class ModelUser {
 		System.out.println(change.getUser());
 	}
 	
-	public static void removeUser(String identifier) {
-		System.out.println("FUNÇAO REMOVE USER");
-		for (User user : list) {
-			if (validateUser(user) && user.getIdentifier().equals(identifier)) {
-				System.out.println("Remover user");
-				System.out.println(user.getUser());
-				list.remove(user);
+	public static void removeUser(String id) {
+		for (User objUser : list) {
+			if (validateUser(objUser) && objUser.getId().equals(id)) {
+				System.out.println("Remover objUser");
+				System.out.println(objUser.getUser());
+				list.remove(objUser);
 			} 
 		}		
 	}
