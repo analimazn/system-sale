@@ -10,13 +10,15 @@ public class Building {
 	private double area;
 	private EnumBuilding buildingtype;
 	private Address address;
+	private double price;
 	
-	public Building (int idSale,int id, double area, EnumBuilding buildingtype, Address address ) {
+	public Building (int idSale,int id, double area, EnumBuilding buildingtype, Address address, double price ) {
 		this.idSale = idSale;
 		this.id = id;
 		this.area = area;
 		this.buildingtype = buildingtype;
 		this.address = address;		
+		this.price = price;
 	}
 
 	public int getIdSale() {
@@ -59,6 +61,14 @@ public class Building {
 		this.address = address;
 	}
 
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	public String getBuilding() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("IDSale: "+this.idSale).append("\n");
@@ -66,6 +76,7 @@ public class Building {
 		sb.append("Area: " + this.area).append("\n");
 		sb.append("Buildingtype: "+this.buildingtype).append("\n");
 		sb.append("Address: "+this.address).append("\n");
+		sb.append("Price: "+this.price).append("\n");
 		return sb.toString();
 	}
 	
