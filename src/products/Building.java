@@ -11,14 +11,16 @@ public class Building {
 	private EnumBuilding buildingtype;
 	private Address address;
 	private double price;
+	private String description;
 	
-	public Building (int idSale,int id, double area, EnumBuilding buildingtype, Address address, double price ) {
+	public Building (int idSale,int id, double area, EnumBuilding buildingtype, Address address, double price, String description ) {
 		this.idSale = idSale;
 		this.id = id;
 		this.area = area;
 		this.buildingtype = buildingtype;
 		this.address = address;		
 		this.price = price;
+		this.description = description;
 	}
 
 	public int getIdSale() {
@@ -68,6 +70,14 @@ public class Building {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public String getBuilding() {
 		StringBuilder sb = new StringBuilder();
@@ -77,6 +87,7 @@ public class Building {
 		sb.append("Buildingtype: "+this.buildingtype).append("\n");
 		sb.append("Address: "+this.address).append("\n");
 		sb.append("Price: "+this.price).append("\n");
+		sb.append("Description"+this.description).append("\n");
 		return sb.toString();
 	}
 	

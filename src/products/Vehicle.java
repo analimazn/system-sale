@@ -10,13 +10,15 @@ public class Vehicle {
 	private EnumVehicle vehicletype;
 	private Address address;
 	private double price;
+	private String description;
 
-	public Vehicle(int idSale,int id, EnumVehicle vehicletype, Address address, double price) {
+	public Vehicle(int idSale,int id, EnumVehicle vehicletype, Address address, double price, String description) {
 		this.idSale = idSale;
 		this.id = id;
 		this.vehicletype = vehicletype;
 		this.address = address;
 		this.price = price;
+		this.description = description;
 	}
 
 	public int getIdSale() {
@@ -60,6 +62,14 @@ public class Vehicle {
 		this.price = price;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public String getVehicle() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("IDSale: "+this.idSale).append("\n");
@@ -67,6 +77,7 @@ public class Vehicle {
 		sb.append("Vehicletype: "+this.vehicletype).append("\n");
 		sb.append("Address: "+this.address).append("\n");
 		sb.append("Price"+this.price).append("\n");
+		sb.append("Description"+this.description).append("\n");
 		return sb.toString();
 	}
 }
