@@ -1,6 +1,7 @@
 package entities;
 
 import enums.EnumUser;
+import utils.Cadaster;
 
 public class User extends Cadaster{
 	private EnumUser usertype;
