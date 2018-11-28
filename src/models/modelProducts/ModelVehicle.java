@@ -83,15 +83,6 @@ public class ModelVehicle {
 		}		
 	}
 	
-	public static List<Vehicle> getVehicleByType(String type) {
-		List<Vehicle> vehicleList = new LinkedList();
-		for(Vehicle objVehicle: list) {
-			if(objVehicle.getVehicletype().equals(type)) 
-				vehicleList.add(objVehicle);			
-		}
-		return vehicleList;
-	}
-	
 	public static List<Vehicle> getVehicleByPriceRange(double minValue,double maxValue){
 		List<Vehicle> vehicleList = new LinkedList();
 		for(Vehicle objVehicle: list) {
@@ -105,14 +96,10 @@ public class ModelVehicle {
 	public static List<Vehicle> getVehicleByKeyWord(String keyWord) {
 		List<Vehicle> vehicleList = new ArrayList<>();
 		for(Vehicle vehicle:list) {
-			if(vehicle.getVehicletype().equals(EnumVehicle.Motorcycle.toString()) ||
-					vehicle.getVehicletype().equals(EnumVehicle.Car.toString())){
-				if(((Vehicle)vehicle).getDescription().contains(keyWord))
+			if(vehicle.getDescription().contains(keyWord))
 					vehicleList.add(vehicle);
-		}
 		}
 		return vehicleList;
 	}
-	
 	
 }
