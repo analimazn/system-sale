@@ -15,7 +15,7 @@ public class SystemSale {
 	private LocalDate openingDateBid;
 	private Address address;
 	private Financial financial;
-	private 
+	private String nada;
 	
 	
 }
