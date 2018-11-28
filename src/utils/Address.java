@@ -15,4 +15,14 @@ public class Address {
 		 this.state = state ; 
 		 this.zipCode = zipCode ; 
 	}
+	
+	public String getAddress() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Street : "+this.street).append("\n");
+		sb.append("Number: "+this.number).append("\n");
+		sb.append("City: "+this.city).append("\n");
+		sb.append("State: "+this.state).append("\n");
+		sb.append("ZIP Code: "+this.zipCode);		
+		return sb.toString();
+	}
 }
