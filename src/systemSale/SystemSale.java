@@ -15,8 +15,7 @@ public class SystemSale {
 	private LocalDate openingDateBid;
 	private Address address;
 	private Financial financial;
-	private List<Vehicle> saleVehicles = new LinkedList<Vehicle>();
-	private List<Building> saleBuilding = new LinkedList<Building>(); 
+	private 
 	
 	
 }

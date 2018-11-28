@@ -1,6 +1,8 @@
 package enums;
 
-public enum EnumBuilding {
+public enum EnumProduct {
+	Car,
+	Motorcycle,
 	Apartment,
 	BuildingSit,
 	House,

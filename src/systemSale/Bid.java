@@ -6,8 +6,6 @@ import products.*;
 
 
 public class Bid {
-	private User client;
-	private Product product;
 	private String id;
 	private double value;
 	private LocalTime time;

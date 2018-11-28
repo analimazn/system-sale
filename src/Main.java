@@ -1,6 +1,9 @@
 import enums.EnumUser;
 import entities.*;
 import models.modelEntities.*;
+import models.modelProducts.*;
+import models.modelSystemSale.*;
+import products.*;
 
 public class Main {
 
@@ -21,7 +24,7 @@ public class Main {
 		ModelUser.removeUser(adminOne.getId());
 		ModelUser.getListUser();*/
 		
-		Financial financial1 = new Financial("2323", "111111111111111", "Bradesco");
+		/*Financial financial1 = new Financial("2323", "111111111111111", "Bradesco");
 		Financial financial2 = new Financial("2424", "22222222222222", "Itau" );
 		Financial financial3 = new Financial("2424", "22222222222222", "Itau" );
 		Financial financialUp = new Financial("2424", "555555555555", "BB" );
@@ -34,7 +37,10 @@ public class Main {
 		ModelFinancial.findFinancial(financial1.getId());
 		ModelFinancial.updateFinancial(financialUp);
 		ModelFinancial.removeFinancial(financial1.getId());
-		ModelFinancial.getListFinancial();
+		ModelFinancial.getListFinancial();*/
+		
+		ModelVehicle vehicle = new ModelVehicle();
+		vehicle.getListProduct();
 		
 	}
 
