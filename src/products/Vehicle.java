@@ -75,9 +75,9 @@ public class Vehicle {
 		sb.append("IDSale: "+this.idSale).append("\n");
 		sb.append("ID: "+this.id).append("\n");
 		sb.append("Vehicletype: "+this.vehicletype).append("\n");
-		sb.append("Address: "+this.address).append("\n");
-		sb.append("Price"+this.price).append("\n");
-		sb.append("Description"+this.description).append("\n");
+		sb.append("Address: "+this.address.getAddress()).append("\n");
+		sb.append("Price: "+this.price).append("\n");
+		sb.append("Description: "+this.description).append("\n");
 		return sb.toString();
 	}
 }

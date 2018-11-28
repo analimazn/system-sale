@@ -85,9 +85,9 @@ public class Building {
 		sb.append("ID: "+this.id).append("\n");
 		sb.append("Area: " + this.area).append("\n");
 		sb.append("Buildingtype: "+this.buildingtype).append("\n");
-		sb.append("Address: "+this.address).append("\n");
+		sb.append("Address: "+this.address.getAddress()).append("\n");
 		sb.append("Price: "+this.price).append("\n");
-		sb.append("Description"+this.description).append("\n");
+		sb.append("Description: "+this.description);
 		return sb.toString();
 	}
 	
