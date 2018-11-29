@@ -1,17 +1,17 @@
 package products;
 
 import enums.EnumProduct;
-import systemSale.SystemSale;
+import systemSale.Sale;
 import utils.Address;
 
 public class Product {
-	private SystemSale idSale;
+	private Sale idSale;
 	private String id;	
 	private EnumProduct type;
 	private double price;
 	private String description;
 
-	public Product(SystemSale idSale, String id, EnumProduct type, Address address, double price, String description) {
+	public Product(Sale idSale, String id, EnumProduct type, Address address, double price, String description) {
 		this.idSale = idSale;
 		this.id = id;
 		this.type = type;
@@ -19,11 +19,11 @@ public class Product {
 		this.description = description;
 	}
 
-	public SystemSale getIdSale() {
+	public Sale getIdSale() {
 		return idSale;
 	}
 
-	public void setIdSale(SystemSale idSale) {
+	public void setIdSale(Sale idSale) {
 		this.idSale = idSale;
 	}
 
@@ -61,11 +61,11 @@ public class Product {
 
 	public String getProduct() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("IDSale: "+this.idSale).append("\n");
-		sb.append("ID: "+this.id).append("\n");
-		sb.append("ProductType: "+this.type).append("\n");
-		sb.append("Price"+this.price).append("\n");
-		sb.append("Description"+this.description).append("\n");
+		sb.append("IdSale: " + this.idSale).append("\n");
+		sb.append("ID: " + this.id).append("\n");
+		sb.append("ProductType: " + this.type).append("\n");
+		sb.append("Price" + this.price).append("\n");
+		sb.append("Description" + this.description).append("\n");
 		return sb.toString();
 	}
 }

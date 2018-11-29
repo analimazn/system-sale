@@ -8,7 +8,7 @@ public class ModelProduct {
 
 	static List<Product> list = new LinkedList<Product>();
 	
-	public Boolean validateProduct(Product objProduct) {
+	public static Boolean validateProduct(Product objProduct) {
 		for(Product product : list) {
 		   if(product.getProduct().equals(objProduct.getProduct())) {
 			   System.out.println("Produto encontrado");
@@ -21,7 +21,7 @@ public class ModelProduct {
 		return false;
 	}
 	
-	public void addProduct(Product objProduct) {
+	public static void addProduct(Product objProduct) {
 		if(!validateProduct(objProduct)) {
 			list.add(objProduct);
 			System.out.println("Produto cadastrado com sucesso");
@@ -31,7 +31,7 @@ public class ModelProduct {
 		}
 	}
 	
-	public Product findProduct(String id) {
+	public static Product findProduct(String id) {
 		list.stream()
 			.filter(objProduct -> {
 				if(objProduct.getId() == id) {
@@ -46,7 +46,7 @@ public class ModelProduct {
 		return null;
 	}
 	
-	public void getListProduct() {
+	public static void getListProduct() {
 		if (list.size() > 0) {
 			System.out.println("Todos os Produtos");
 			for(Product objProduct: list) {
@@ -57,7 +57,7 @@ public class ModelProduct {
 		}
 	}
 	
-	public void updateProduct(Product change) {
+	public static void updateProduct(Product change) {
 		for (Product objProduct : list) {
 			if (validateProduct(objProduct) && objProduct.getId() == change.getId()) {
 				System.out.println("Atualizar Produto");
@@ -71,7 +71,7 @@ public class ModelProduct {
 		System.out.println(change.getProduct());
 	}
 	
-	public void removeProduct(String id) {
+	public static void removeProduct(String id) {
 		for (Product objProduct : list) {
 			if (validateProduct(objProduct) && objProduct.getId() == id) {
 				System.out.println("Remover produto");
@@ -81,7 +81,7 @@ public class ModelProduct {
 		}		
 	}
 	
-	public List<Product> getProductByTypeOrKeyWord(String word) {
+	public static List<Product> getProductByTypeOrKeyWord(String word) {
 		List<Product> products = new LinkedList<Product>();
 		for(Product objProduct: list) {
 			if(objProduct.getVehicletype().toString().contains(word) ||
@@ -91,7 +91,7 @@ public class ModelProduct {
 		return products;
 	}
 	
-	public List<Product> getProductByPriceRange(double minValue, double maxValue){
+	public static List<Product> getProductByPriceRange(double minValue, double maxValue){
 		List<Product> products = new LinkedList<Product>();
 		for(Product objProduct: list) {
 			if((objProduct.getPrice() >= minValue) && (objProduct.getPrice() <= maxValue)) {
