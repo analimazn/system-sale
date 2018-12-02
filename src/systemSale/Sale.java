@@ -14,7 +14,7 @@ public class Sale {
 	private LocalDate openingDateBid;
 	private String address;
 	private String financial;
-	private List<Product> products = new LinkedList<Product>();
+	private static List<Product> products = new LinkedList<Product>();
 	private List<Bid> bids = new LinkedList<Bid>();
 
 	public Sale(String id, LocalDate proposalDateBid, LocalDate openingDateBid, 
@@ -96,7 +96,7 @@ public class Sale {
 		return products;
 	}
 
-	public Boolean validateProduct(Product obj) {
+	public static Boolean validateProduct(Product obj) {
 		try {
 			if(products.isEmpty()) {
 				return false;
@@ -114,7 +114,7 @@ public class Sale {
 		}
 	}
 	
-	public void addProduct(Product obj) {
+	public static void addProduct(Product obj) {
 		try {
 			if (!validateProduct(obj)) {
 				System.out.println("Cadastrar produto");
@@ -161,7 +161,7 @@ public class Sale {
 		return change;
 	}
 	
-	public Boolean removeProduct(String id) {
+	public static Boolean removeProduct(String id) {
 		for (Product obj : products) {
 			if (obj.getId().equals(id)) {
 				System.out.println("Remover produto");
@@ -173,7 +173,7 @@ public class Sale {
 		return false;
 	}
 	
-	public List<Product> getProductByTypeOrKeyWord(String word) {
+	public static List<Product> getProductByTypeOrKeyWord(String word) {
 		List<Product> found = new LinkedList<Product>();
 		for(Product obj: products) {
 			if(obj.getType().toString().contains(word) || 
@@ -184,11 +184,11 @@ public class Sale {
 		return found;
 	}
 	
-	public List<Product> getProductByPriceRange(double minValue, double maxValue){
+	public static List<Product> getProductByPriceRange(double minValue, double maxValue){
 		System.out.println("get product by price range\n");
 		List<Product> searchMinMax = new LinkedList<Product>();
 		for(Product obj: products) {
-			if((obj.getPrice() >= minValue) && (obj.getPrice() <= maxValue))
+			if((minValue <= obj.getPrice() ) && (maxValue >= obj.getPrice() ))
 				System.out.println("");
 				searchMinMax.add(obj);
 		}
