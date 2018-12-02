@@ -6,12 +6,12 @@ import systemSale.Sale;
 import utils.Address;
 
 public class Building extends Product {
-	private Address address;
-	private double area;
-	private EnumBuilding modality;
+	protected String address;
+	protected double area;
+	protected EnumBuilding modality;
 	
-	public Building(Sale idSale, String id, EnumProduct type, EnumBuilding modality,
-			double price, String description, Address address, double area) {
+	public Building(String idSale, String id, EnumProduct type, EnumBuilding modality,
+			double price, String description, String address, double area) {
 		super(idSale, id, type, price, description);
 		this.modality = modality;
 		this.address = address;
@@ -34,11 +34,11 @@ public class Building extends Product {
 		this.area = area;
 	}
 
-	public Address getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 

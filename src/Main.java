@@ -19,15 +19,17 @@ public class Main {
 	public static void main(String[] args) {
 		Address address = new Address("rua dois", 40, "city1", "sp", "12222");
 		Financial finacial1 = new Financial("001", "nada", "teste");
-		Sale sale1 = new Sale("01", "20-09-2010", "30-09-2010", address, finacial1);
-		Building casa1 = new Building(sale1, "002", EnumProduct.Building, EnumBuilding.Apartment, 223.00, "teste", address, 44.00);
-		Building casa2 = new Building(sale1, "002", EnumProduct.Building, EnumBuilding.Apartment, 223.00, "teste", address, 44.00);
+		Sale sale1 = new Sale("01", "20-09-2010", "30-09-2010", address.getAddress(), finacial1.getFinancial());
+		Product prod1 = new Product(sale1.getId(), "001", EnumProduct.Building, 22.00, "testeprod");
+		Building casa1 = new Building(sale1.getId(), prod1.getId(), prod1.getType(), EnumBuilding.Apartment, 223.00, "teste1", address.getAddress(), 44.00);		
+		Building casa2 = new Building(sale1.getId(), prod1.getId(), prod1.getType(), EnumBuilding.Apartment, 223.00, "teste2", address.getAddress(), 44.00);
 		
-		ModelProduct model1 = new ModelProduct();
-		model1.addProduct(casa1);
-		model1.addProduct(casa2);
-		//sale1.setProducts(model1.getListProduct());
-		//sale1.getProducts().forEach(prod -> System.out.println(prod.getDescription()));
+		ModelProduct.addProduct(casa1);
+		ModelProduct.addProduct(casa2);
+		ModelProduct.findProduct(casa1.getId());
+		
+		sale1.setProducts(ModelProduct.getListProduct());
+		
 		
 		
 	

@@ -13,12 +13,12 @@ public class Sale {
 	private EnumStatus status;
 	private String proposalDateBid;
 	private String openingDateBid;
-	private Address address;
-	private Financial financial;
+	private String address;
+	private String financial;
 	private List<Product> products = new LinkedList<Product>();
 	private List<Bid> bids = new LinkedList<Bid>();
 
-	public Sale(String id, String proposalDateBid, String openingDateBid, Address address, Financial financial) {
+	public Sale(String id, String proposalDateBid, String openingDateBid, String address, String financial) {
 		this.id = id;
 		this.proposalDateBid = proposalDateBid;
 		this.openingDateBid = openingDateBid;
@@ -74,19 +74,19 @@ public class Sale {
 		this.openingDateBid = openingDateBid;
 	}
 
-	public Address getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	public Financial getFinancial() {
+	public String getFinancial() {
 		return financial;
 	}
 
-	public void setFinancial(Financial financial) {
+	public void setFinancial(String financial) {
 		this.financial = financial;
 	}
 	

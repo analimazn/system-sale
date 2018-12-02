@@ -5,9 +5,9 @@ import enums.EnumVehicle;
 import systemSale.Sale;
 
 public class Vehicle extends Product {
-	private String chassis;
-	private String licensePlate;
-	private EnumVehicle modality;
+	protected String chassis;
+	protected String licensePlate;
+	protected EnumVehicle modality;
 	
 	public Vehicle(Sale idSale, String id, EnumProduct type, EnumVehicle modality, double price, 
 			String description, String chassis, String licensePlate) {
