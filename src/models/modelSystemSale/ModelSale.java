@@ -1,14 +1,8 @@
 package models.modelSystemSale;
 
-import models.modelEntities.*;
-import models.modelProducts.*;
-
 import java.util.LinkedList;
 import java.util.List;
-
-import entities.*;
 import systemSale.Sale;
-import products.Product;
 
 public class ModelSale {
 	static List<Sale> list = new LinkedList<Sale>();
@@ -84,23 +78,5 @@ public class ModelSale {
 		}		
 	}
 	
-	public List<Sale> getProductByTypeOrKeyWord(String word) {
-		List<Sale> products = new LinkedList<Sale>();
-		for(Sale objSale: list) {
-			if(objSale.getVehicletype().toString().contains(word) ||
-					objSale.getDescription().contains(word))
-				products.add(objSale);			
-		}
-		return products;
-	}
 	
-	public List<Sale> getProductByPriceRange(double minValue, double maxValue){
-		List<Sale> products = new LinkedList<Sale>();
-		for(Sale objSale: list) {
-			if((objSale.getPrice() >= minValue) && (objSale.getPrice() <= maxValue)) {
-				products.add(objSale);
-			}
-		}
-		return products;
-	}
 }

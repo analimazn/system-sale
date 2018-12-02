@@ -6,32 +6,55 @@ import products.Product;
 
 public class ModelProduct {
 
-	static List<Product> list = new LinkedList<Product>();
+	List<Product> list = new LinkedList<Product>();
 	
-	public static Boolean validateProduct(Product objProduct) {
-		for(Product product : list) {
-		   if(product.getProduct().equals(objProduct.getProduct())) {
-			   System.out.println("Produto encontrado");
-			   System.out.println(objProduct.getProduct());
-			   return true;
-		    }
+	public Boolean validateProduct(String idProduct) {
+		try {
+			if(list.isEmpty()) {
+				return false;
+			} else  {
+				for(Product product : list) {
+					if(product.getId().equals(idProduct)) {
+						System.out.println("Produto encontrado");
+						return true;
+					}
+					return false;
+				}
+				return null;
+			}
+		} catch(java.lang.NullPointerException e) {
+			System.out.println("Nao há nada na lista");
+			return false;
 		}
-		System.out.println("Produto năo encontrado");
-		System.out.println(objProduct.getProduct());
-		return false;
+		
 	}
 	
-	public static void addProduct(Product objProduct) {
-		if(!validateProduct(objProduct)) {
-			list.add(objProduct);
-			System.out.println("Produto cadastrado com sucesso");
-			System.out.println(objProduct.getProduct());
-		} else {
-			System.out.println("Produto já cadastrado");
+	public Product addProduct(Product objProduct) {
+		try {
+			if(list.isEmpty()) {
+				System.out.println("Lista Vazia");
+				list.add(objProduct);
+				return objProduct;
+			} else  {
+				System.out.println(list);
+				System.out.println(list.isEmpty());
+				for(Product product : list) {
+					if(product.getId().equals(objProduct.getId())) {
+						System.out.println("Produto já cadastrado");
+						return null;
+					}
+					list.add(list.indexOf(objProduct), objProduct);
+					return objProduct;
+				}
+				return null;
+			}
+		} catch(java.lang.NullPointerException e) {
+			System.out.println("Nao há nada na lista");
+			return null;
 		}
 	}
 	
-	public static Product findProduct(String id) {
+	public Product findProduct(String id) {
 		list.stream()
 			.filter(objProduct -> {
 				if(objProduct.getId() == id) {
@@ -41,57 +64,58 @@ public class ModelProduct {
 			})
 			.forEach(objProduct -> {
 				System.out.println("Produto");
-				System.out.println(objProduct.getProduct());
+				System.out.println(objProduct.toString());
 			});
 		return null;
 	}
 	
-	public static void getListProduct() {
+	public List<Product> getListProduct() {
 		if (list.size() > 0) {
 			System.out.println("Todos os Produtos");
 			for(Product objProduct: list) {
-				System.out.println(objProduct.getProduct());
+				System.out.println(objProduct.toString());
 			}
 		} else {
 			System.out.println("Sem Produtos");
 		}
+		return list;
 	}
 	
-	public static void updateProduct(Product change) {
+	public void updateProduct(Product change) {
 		for (Product objProduct : list) {
 			if (validateProduct(objProduct) && objProduct.getId() == change.getId()) {
 				System.out.println("Atualizar Produto");
-				System.out.println(objProduct.getProduct());
+				System.out.println(objProduct.toString());
 				list.set(list.indexOf(objProduct), change);
 			}  else {
 				System.out.println("Produto năo encontrado no sistema");
 			}
 		}
 		System.out.println("Produto atualizado");
-		System.out.println(change.getProduct());
+		System.out.println(change.toString());
 	}
 	
-	public static void removeProduct(String id) {
+	public void removeProduct(String id) {
 		for (Product objProduct : list) {
 			if (validateProduct(objProduct) && objProduct.getId() == id) {
 				System.out.println("Remover produto");
-				System.out.println(objProduct.getProduct());
+				System.out.println(objProduct.toString());
 				list.remove(objProduct);
 			} 
 		}		
 	}
 	
-	public static List<Product> getProductByTypeOrKeyWord(String word) {
+	public List<Product> getProductByTypeOrKeyWord(String word) {
 		List<Product> products = new LinkedList<Product>();
 		for(Product objProduct: list) {
-			if(objProduct.getVehicletype().toString().contains(word) ||
+			if(objProduct.getType().toString().contains(word) ||
 					objProduct.getDescription().contains(word))
 				products.add(objProduct);			
 		}
 		return products;
 	}
 	
-	public static List<Product> getProductByPriceRange(double minValue, double maxValue){
+	public List<Product> getProductByPriceRange(double minValue, double maxValue){
 		List<Product> products = new LinkedList<Product>();
 		for(Product objProduct: list) {
 			if((objProduct.getPrice() >= minValue) && (objProduct.getPrice() <= maxValue)) {

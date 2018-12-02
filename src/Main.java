@@ -1,13 +1,36 @@
+import enums.EnumBuilding;
+import enums.EnumProduct;
 import enums.EnumUser;
+import enums.EnumVehicle;
+
+import java.util.LinkedList;
+import java.util.List;
+
 import entities.*;
 import models.modelEntities.*;
 import models.modelProducts.*;
 import models.modelSystemSale.*;
 import products.*;
+import systemSale.Sale;
+import utils.Address;
 
 public class Main {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
+		Address address = new Address("rua dois", 40, "city1", "sp", "12222");
+		Financial finacial1 = new Financial("001", "nada", "teste");
+		Sale sale1 = new Sale("01", "20-09-2010", "30-09-2010", address, finacial1);
+		Building casa1 = new Building(sale1, "002", EnumProduct.Building, EnumBuilding.Apartment, 223.00, "teste", address, 44.00);
+		Building casa2 = new Building(sale1, "002", EnumProduct.Building, EnumBuilding.Apartment, 223.00, "teste", address, 44.00);
+		
+		ModelProduct model1 = new ModelProduct();
+		model1.addProduct(casa1);
+		model1.addProduct(casa2);
+		//sale1.setProducts(model1.getListProduct());
+		//sale1.getProducts().forEach(prod -> System.out.println(prod.getDescription()));
+		
+		
+	
 		/*Users de teste
 		User adminOne = new User("teste1", "@123", EnumUser.Admin, "00001", "Teste1", "00000000000000");
 		User clientTwo = new User("teste2", "@123", EnumUser.Client, "00002", "Teste2", "11111111111111");
@@ -38,9 +61,7 @@ public class Main {
 		ModelFinancial.updateFinancial(financialUp);
 		ModelFinancial.removeFinancial(financial1.getId());
 		ModelFinancial.getListFinancial();*/
-		
-		ModelVehicle vehicle = new ModelVehicle();
-		vehicle.getListProduct();
+
 		
 	}
 

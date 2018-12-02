@@ -25,10 +25,9 @@ public class ModelProductTest  extends TestCase{
 	@Test
 	public void addProduct() {
 		product = new Product(new Sale("0001",  LocalDate.of(2015, 3,5) , LocalDate.of(2015, 3,7), 
-				new Address("Rua Emílio Marelo", 182, "São Paulo", "São Paulo", "12241200"), 
-				new Financial("0001", "123456789101213", "Moura FInanças")),
-				"0001", EnumProduct.Apartment, 
-				new Address("Rua Emílio Marelo", 182, "São Paulo", "São Paulo", "12241200"), 198396, "3 minutes from Carrefour and 5 minutes from Shopping Vale Sul");
+				new Financial("0001", "123456789101213", "Moura FInanï¿½as")),
+				"0001", EnumProduct.Building, 
+				198396, "3 minutes from Carrefour and 5 minutes from Shopping Vale Sul");
 		
 		ModelProduct.addProduct( product );		
 		//assertEquals(true, modelproduct.validateProduct(product));
@@ -37,10 +36,10 @@ public class ModelProductTest  extends TestCase{
 	@Test
 	public void removeProduct() {	
 		product = new Product(new Sale("0001",  LocalDate.of(2015, 3,5) , LocalDate.of(2015, 3,7), 
-				new Address("Rua Emílio Marelo", 182, "São Paulo", "São Paulo", "12241200"), 
-				new Financial("0001", "123456789101213", "Moura FInanças")),
+				new Address("Rua Emï¿½lio Marelo", 182, "Sï¿½o Paulo", "Sï¿½o Paulo", "12241200"), 
+				new Financial("0001", "123456789101213", "Moura FInanï¿½as")),
 				"0001", EnumProduct.Apartment, 
-				new Address("Rua Emílio Marelo", 182, "São Paulo", "São Paulo", "12241200"), 198396, "3 minutes from Carrefour and 5 minutes from Shopping Vale Sul");
+				new Address("Rua Emï¿½lio Marelo", 182, "Sï¿½o Paulo", "Sï¿½o Paulo", "12241200"), 198396, "3 minutes from Carrefour and 5 minutes from Shopping Vale Sul");
 		
 		
 		ModelProduct.addProduct( product );
