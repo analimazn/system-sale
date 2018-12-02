@@ -7,7 +7,7 @@ import systemSale.Sale;
 public class ModelSale {
 	static List<Sale> list = new LinkedList<Sale>();
 	
-	public Boolean validateSale(Sale objSale) {
+	public static Boolean validateSale(Sale objSale) {
 		for(Sale sale : list) {
 		   if(sale.getSale().equals(objSale.getSale())) {
 			   System.out.println("Leilão encontrado");
@@ -20,7 +20,7 @@ public class ModelSale {
 		return false;
 	}
 	
-	public void addLeilão(Sale objSale) {
+	public static void addSale(Sale objSale) {
 		if(!validateSale(objSale)) {
 			list.add(objSale);
 			System.out.println("Leilão cadastrado com sucesso");
@@ -68,7 +68,7 @@ public class ModelSale {
 		System.out.println(change.getSale());
 	}
 	
-	public void removeSale(String id) {
+	public static void removeSale(String id) {
 		for (Sale objSale : list) {
 			if (objSale.getId() == id) {
 				System.out.println("Remover produto");
