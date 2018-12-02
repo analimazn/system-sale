@@ -1,5 +1,6 @@
 package systemSale;
 
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,14 +10,14 @@ import enums.EnumStatus;
 public class Sale {
 	private String id;
 	private EnumStatus status;
-	private String proposalDateBid;
-	private String openingDateBid;
+	private LocalDate proposalDateBid;
+	private LocalDate openingDateBid;
 	private String address;
 	private String financial;
 	private List<Product> products = new LinkedList<Product>();
 	private List<Bid> bids = new LinkedList<Bid>();
 
-	public Sale(String id, String proposalDateBid, String openingDateBid, 
+	public Sale(String id, LocalDate proposalDateBid, LocalDate openingDateBid, 
 			String address, String financial, EnumStatus status) {
 		this.id = id;
 		this.proposalDateBid = proposalDateBid;
@@ -50,19 +51,19 @@ public class Sale {
 		this.bids = bids;
 	}
 
-	public String getProposalDateBid() {
+	public LocalDate getProposalDateBid() {
 		return proposalDateBid;
 	}
 
-	public void setProposalDateBid(String proposalDateBid) {
+	public void setProposalDateBid(LocalDate proposalDateBid) {
 		this.proposalDateBid = proposalDateBid;
 	}
 
-	public String getOpeningDateBid() {
+	public LocalDate getOpeningDateBid() {
 		return openingDateBid;
 	}
 
-	public void setOpeningDateBid(String openingDateBid) {
+	public void setOpeningDateBid(LocalDate openingDateBid) {
 		this.openingDateBid = openingDateBid;
 	}
 
@@ -83,7 +84,7 @@ public class Sale {
 	}
 	
 	public List<Product> getProducts() {
-		System.out.println("get all product\n");
+		System.out.println("get all products\n");
 		if (!products.isEmpty()) {
 			System.out.println("Todos os Produtos");
 			for(Product obj: products) {
@@ -173,26 +174,25 @@ public class Sale {
 	}
 	
 	public List<Product> getProductByTypeOrKeyWord(String word) {
-		System.out.println("get product by type word\n");
-		List<Product> searchByType = new LinkedList<Product>();
+		List<Product> found = new LinkedList<Product>();
 		for(Product obj: products) {
-			if(obj.getType().toString().contains(word) || obj.getDescription().contains(word))
-				searchByType.add(obj);
+			if(obj.getType().toString().contains(word) || 
+					obj.getDescription().contains(word))
+				System.out.println("");
+				found.add(obj);
 		}
-		searchByType.forEach(prod -> System.out.println(prod.getProduct()));
-		System.out.println(searchByType.size());
-		return searchByType;
+		return found;
 	}
 	
 	public List<Product> getProductByPriceRange(double minValue, double maxValue){
 		System.out.println("get product by price range\n");
 		List<Product> searchMinMax = new LinkedList<Product>();
 		for(Product obj: products) {
-			if((obj.getPrice() >= minValue) && (obj.getPrice() <= maxValue)) {
+			if((obj.getPrice() >= minValue) && (obj.getPrice() <= maxValue))
+				System.out.println("");
 				searchMinMax.add(obj);
-			}
 		}
-		return products;
+		return searchMinMax;
 	}
 	
 	public String getSale() {
@@ -201,9 +201,9 @@ public class Sale {
 		sb.append("Status: " + this.status).append("\n");
 		sb.append("Proposal String: " + this.proposalDateBid).append("\n");
 		sb.append("Opening String: " + this.openingDateBid).append("\n");
-		sb.append("Products: " + this.products).append("\n");
-		sb.append("Address: " + this.address).append("\n");
-		sb.append("Financial: " + this.financial).append("\n");
+		sb.append("Products\n" + this.products).append("\n");
+		sb.append("Address\n" + this.address).append("\n");
+		sb.append("Financial\n" + this.financial);
 		return sb.toString();
 	}
 }

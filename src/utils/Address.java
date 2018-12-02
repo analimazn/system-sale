@@ -61,7 +61,7 @@ public class Address {
 		sb.append("Number: "+this.number).append("\n");
 		sb.append("City: "+this.city).append("\n");
 		sb.append("State: "+this.state).append("\n");
-		sb.append("Zip Code: "+this.zipCode).append("\n");
+		sb.append("Zip Code: "+this.zipCode);
 		return sb.toString();
 	}
 }

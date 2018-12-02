@@ -7,61 +7,59 @@ import systemSale.Sale;
 public class ModelSale {
 	static List<Sale> list = new LinkedList<Sale>();
 	
-	public static Boolean validateSale(Sale objSale) {
+	public static Boolean validateSale(Sale obj) {
 		for(Sale sale : list) {
-		   if(sale.getSale().equals(objSale.getSale())) {
+		   if(sale.getId().equals(obj.getId())) {
 			   System.out.println("Leilão encontrado");
-			   System.out.println(objSale.getSale());
 			   return true;
 		    }
 		}
 		System.out.println("Leilão năo encontrado");
-		System.out.println(objSale.getSale());
 		return false;
 	}
 	
-	public static void addSale(Sale objSale) {
-		if(!validateSale(objSale)) {
-			list.add(objSale);
+	public static void addSale(Sale obj) {
+		if(!validateSale(obj)) {
+			list.add(obj);
 			System.out.println("Leilão cadastrado com sucesso");
-			System.out.println(objSale.getSale());
+			System.out.println(obj.getSale());
 		} else {
 			System.out.println("Leilão já cadastrado");
 		}
 	}
 	
-	public Sale findSale(String id) {
+	public static Sale findSale(String id) {
 		list.stream()
-			.filter(objSale -> {
-				if(objSale.getId() == id) {
-					return objSale != null;
+			.filter(obj -> {
+				if(obj.getId() == id) {
+					return obj != null;
 				}
 				return false;
 			})
-			.forEach(objSale -> {
+			.forEach(obj -> {
 				System.out.println("Leilão");
-				System.out.println(objSale.getSale());
+				System.out.println(obj.getSale());
 			});
 		return null;
 	}
 	
-	public void getListSale() {
+	public static void getListSale() {
 		if (list.size() > 0) {
 			System.out.println("Todos os leilões");
-			for(Sale objSale: list) {
-				System.out.println(objSale.getSale());
+			for(Sale obj: list) {
+				System.out.println(obj.getSale());
 			}
 		} else {
 			System.out.println("Sem Leilões");
 		}
 	}
 	
-	public void updateSale(Sale change) {
-		for (Sale objSale : list) {
-			if (objSale.getId() == change.getId()) {
-				System.out.println("Atualizar Produto");
-				System.out.println(objSale.getSale());
-				list.set(list.indexOf(objSale), change);
+	public static void updateSale(Sale change) {
+		for (Sale obj : list) {
+			if (obj.getId() == change.getId()) {
+				System.out.println("Atualizar Leilão");
+				System.out.println(obj.getSale());
+				list.set(list.indexOf(obj), change);
 			}
 		}
 		System.out.println("Leilão atualizado");
@@ -69,11 +67,11 @@ public class ModelSale {
 	}
 	
 	public static void removeSale(String id) {
-		for (Sale objSale : list) {
-			if (objSale.getId() == id) {
-				System.out.println("Remover produto");
-				System.out.println(objSale.getSale());
-				list.remove(objSale);
+		for (Sale obj : list) {
+			if (obj.getId() == id) {
+				System.out.println("Remover Leilão");
+				System.out.println(obj.getSale());
+				list.remove(obj);
 			} 
 		}		
 	}

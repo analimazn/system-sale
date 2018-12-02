@@ -37,8 +37,8 @@ public class Financial {
 
 	public String getFinancial() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Razão Social: "+this.socialReason).append("\n");
-		sb.append("CNPJ: "+this.cnpj).append("\n");
+		sb.append("Razão Social: " + this.socialReason).append("\n");
+		sb.append("CNPJ: " + this.cnpj).append("\n");
 		return sb.toString();
 	}
 
