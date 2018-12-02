@@ -1,6 +1,5 @@
 package systemSale;
 
-import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,14 +11,14 @@ import enums.EnumStatus;
 public class Sale {
 	private String id;
 	private EnumStatus status;
-	private LocalDate proposalDateBid;
-	private LocalDate openingDateBid;
+	private String proposalDateBid;
+	private String openingDateBid;
 	private Address address;
 	private Financial financial;
 	private List<Product> products = new LinkedList<Product>();
 	private List<Bid> bids = new LinkedList<Bid>();
 
-	public Sale(String id, LocalDate proposalDateBid, LocalDate openingDateBid, Address address, Financial financial) {
+	public Sale(String id, String proposalDateBid, String openingDateBid, Address address, Financial financial) {
 		this.id = id;
 		this.proposalDateBid = proposalDateBid;
 		this.openingDateBid = openingDateBid;
@@ -59,19 +58,19 @@ public class Sale {
 		this.bids = bids;
 	}
 
-	public LocalDate getProposalDateBid() {
+	public String getProposalDateBid() {
 		return proposalDateBid;
 	}
 
-	public void setProposalDateBid(LocalDate proposalDateBid) {
+	public void setProposalDateBid(String proposalDateBid) {
 		this.proposalDateBid = proposalDateBid;
 	}
 
-	public LocalDate getOpeningDateBid() {
+	public String getOpeningDateBid() {
 		return openingDateBid;
 	}
 
-	public void setOpeningDateBid(LocalDate openingDateBid) {
+	public void setOpeningDateBid(String openingDateBid) {
 		this.openingDateBid = openingDateBid;
 	}
 
@@ -95,8 +94,8 @@ public class Sale {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Id: " + this.id).append("\n");
 		sb.append("Status: " + this.status).append("\n");
-		sb.append("Proposal Date: " + this.proposalDateBid).append("\n");
-		sb.append("Opening Date: " + this.openingDateBid).append("\n");
+		sb.append("Proposal String: " + this.proposalDateBid).append("\n");
+		sb.append("Opening String: " + this.openingDateBid).append("\n");
 		sb.append("Products: " + this.products).append("\n");
 		sb.append("Address: " + this.address).append("\n");
 		sb.append("Financial: " + this.financial).append("\n");

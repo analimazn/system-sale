@@ -1,74 +1,63 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.lessThan;
+import org.hamcrest.core.AllOf;
+import org.junit.Test;
+
 import entities.Financial;
 import enums.EnumProduct;
+import junit.framework.TestCase;
 import models.modelProducts.ModelProduct;
 import products.Product;
 import systemSale.Sale;
 import utils.Address;
 
-class ModelProductTest {
+public class ModelProductTest  extends TestCase{
+	Product product;
+	ModelProduct modelproduct;
+
+	@Test
+	public void addProduct() {
+		product = new Product(new Sale("0001",  LocalDate.of(2015, 3,5) , LocalDate.of(2015, 3,7), 
+				new Financial("0001", "123456789101213", "Moura FInanï¿½as")),
+				"0001", EnumProduct.Building, 
+				198396, "3 minutes from Carrefour and 5 minutes from Shopping Vale Sul");
+		
+		ModelProduct.addProduct( product );		
+		//assertEquals(true, modelproduct.validateProduct(product));
+	}
 	
-	Product product1;
-	Product product2;
-	
-	@BeforeEach
-	protected void setUp() throws Exception {
-		product1 = new Product(new Sale("0001",  LocalDate.of(2015, 3,5) , LocalDate.of(2015, 3,7), 
-				new Address("Rua Emílio Marelo", 182, "São Paulo", "São Paulo", "12241200"), 
-				new Financial("0001", "123456789101213", "Moura Finanças")),
+	@Test
+	public void removeProduct() {	
+		product = new Product(new Sale("0001",  LocalDate.of(2015, 3,5) , LocalDate.of(2015, 3,7), 
+				new Address("Rua Emï¿½lio Marelo", 182, "Sï¿½o Paulo", "Sï¿½o Paulo", "12241200"), 
+				new Financial("0001", "123456789101213", "Moura FInanï¿½as")),
 				"0001", EnumProduct.Apartment, 
-				new Address("Rua Emílio Marelo", 182, "São Paulo", "São Paulo", "12241200"), 198396, "apartamento a 3 minutes from Carrefour and 5 minutes from Vale Sul Shopping mall");
-		product2 = new Product(new Sale("0001",  LocalDate.of(2015, 3,5) , LocalDate.of(2015, 3,7), 
-				new Address("Rua Emílio Marelo", 182, "São Paulo", "São Paulo", "12241200"), 
-				new Financial("0001", "123456789101213", "Moura FInanças")),
-				"0002", EnumProduct.Apartment, 
-				new Address("Rua Emílio Marelo", 182, "São Paulo", "São Paulo", "12241200"), 198396, "apartamento a 3 minutes from Carrefour and 5 minutes from Vale Sul Shopping mal");
-		ModelProduct.addProduct( product1 );
-			}
-
-	@Test
-	public void addProduct() {			
-		assertTrue(ModelProduct.validateProduct(product1));
-	}
+				new Address("Rua Emï¿½lio Marelo", 182, "Sï¿½o Paulo", "Sï¿½o Paulo", "12241200"), 198396, "3 minutes from Carrefour and 5 minutes from Shopping Vale Sul");
 		
-	@Test
-	public void getProductByTypeOrKeyWord() {		
-		String keyword = "apartamento";
-		assertTrue(ModelProduct.getProductByTypeOrKeyWord(keyword).size() > 0 );		
+		
+		ModelProduct.addProduct( product );
+		modelproduct.removeProduct("00002");		
+//		/assertEquals(false, modelproduct.validateProduct(product));		
+	}
+	
+	
+@Test
+	public void getProductByPriceRange() {	
+		double minValue = 10.0;
+		double maxValue = 15.0;
+	
+	//	 assertThat(price, (greaterThan(minValue), lessThan(maxValue) ) );				
 	}
 	
 	@Test
-	public void getProductByPriceRange() {		
-		double minValue =  product1.getPrice() - 1;
-		double maxValue = product1.getPrice() + 1;
-		assertTrue(ModelProduct.getProductByPriceRange(minValue, maxValue).size() > 0 );
+	public void getProductByTypeOrKeyWord() {
 		
-		double minValue2 =  product1.getPrice();
-		double maxValue2 = product1.getPrice() + 1;
-		assertTrue(ModelProduct.getProductByPriceRange(minValue2, maxValue2).size() > 0 );
-		
-		double minValue3 =  product1.getPrice() - 1;
-		double maxValue3 = product1.getPrice();		
-		assertTrue(ModelProduct.getProductByPriceRange(minValue3, maxValue3).size() > 0 );
-		
-		double minValue4 =  product1.getPrice() + 1;
-		double maxValue4 = product1.getPrice() + 2;
-		assertFalse(ModelProduct.getProductByPriceRange(minValue4, maxValue4).size() > 0 );
 	}
-	
-	@Test
-	public void removeProduct() {
-		ModelProduct.addProduct( product2 );
-		ModelProduct.removeProduct(product2.getId());
-		assertFalse(ModelProduct.validateProduct(product2));		
-	}
-
 }

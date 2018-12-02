@@ -2,18 +2,16 @@ package products;
 
 import enums.EnumProduct;
 import systemSale.Sale;
-import utils.Address;
 
 public class Product {
-	private Sale idSale;
-	private String id;	
-	private EnumProduct type;
-	private double price;
-	private String description;
+	protected Sale idSale;
+	protected String id;	
+	protected EnumProduct type;
+	protected double price;
+	protected String description;
 
-	public Product(Sale idSale, String id, EnumProduct type, Address address, double price, String description) {
+	public Product(Sale idSale, String id, EnumProduct type, double price, String description) {
 		this.idSale = idSale;
-		this.id = id;
 		this.type = type;
 		this.price = price;
 		this.description = description;
@@ -35,11 +33,12 @@ public class Product {
 		this.id = id;
 	}
 
-	public EnumProduct getVehicletype() {
+	
+	public EnumProduct getType() {
 		return type;
 	}
 
-	public void setVehicletype(EnumProduct type) {
+	public void setType(EnumProduct type) {
 		this.type = type;
 	}
 
@@ -57,15 +56,5 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getProduct() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("IdSale: " + this.idSale).append("\n");
-		sb.append("ID: " + this.id).append("\n");
-		sb.append("ProductType: " + this.type).append("\n");
-		sb.append("Price" + this.price).append("\n");
-		sb.append("Description" + this.description).append("\n");
-		return sb.toString();
 	}
 }
