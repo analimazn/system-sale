@@ -2,13 +2,12 @@ package models.modelProducts;
 
 import java.util.LinkedList;
 import java.util.List;
-import products.Product;
 
-public class ModelProduct {
+public class ModelProduct<T> {
 
-	static List<Product> list = new LinkedList<>();
+	List<T> list = new LinkedList<>();
 	
-	public static Boolean validateProduct(Product objProduct) {
+	public Boolean validateProduct(T objProduct) {
 		try {
 			if(list.isEmpty() || !list.contains(objProduct)) {
 				return false;
@@ -21,11 +20,10 @@ public class ModelProduct {
 		}
 	}
 	
-	public static void addProduct(Product objProduct) {
+	public void addProduct(T objProduct) {
 		try {
 			if (!validateProduct(objProduct)) {
 				System.out.println("Cadastrar produto");
-				System.out.println(objProduct.getIdSale());
 				list.add(objProduct);
 			} else  {
 				System.out.println("Produto ja cadastrado");
@@ -35,7 +33,7 @@ public class ModelProduct {
 		}
 	}
 	
-	public static Product findProduct(String id) {
+	/*public Product findProduct(String id) {
 		System.out.println("No find");
 		list.stream()
 			.filter(objProduct -> {
@@ -46,16 +44,16 @@ public class ModelProduct {
 			})
 			.forEach(objProduct -> {
 				System.out.println("Produto");
-				System.out.println(objProduct.getProduct());
+				System.out.println(objProduct.toString());
 			});
 		return null;
-	}
+	}*/
 	
-	public static List<Product> getListProduct() {
+	public List<T> getListProduct() {
 		if (list.size() > 0) {
 			System.out.println("Todos os Produtos");
-			for(Product objProduct: list) {
-				System.out.println(objProduct.getProduct());
+			for(T objProduct: list) {
+				System.out.println(objProduct.toString());
 			}
 		} else {
 			System.out.println("Sem Produtos");
@@ -63,7 +61,7 @@ public class ModelProduct {
 		return list;
 	}
 	
-	public static void updateProduct(Product change) {
+	/*public void updateProduct(Product change) {
 		for (Product objProduct : list) {
 			if (validateProduct(objProduct) && objProduct.getId() == change.getId()) {
 				System.out.println("Atualizar Produto");
@@ -77,7 +75,7 @@ public class ModelProduct {
 		System.out.println(change.toString());
 	}
 	
-	public static void removeProduct(String id) {
+	public void removeProduct(String id) {
 		for (Product objProduct : list) {
 			if (validateProduct(objProduct) && objProduct.getId() == id) {
 				System.out.println("Remover produto");
@@ -87,7 +85,7 @@ public class ModelProduct {
 		}		
 	}
 	
-	public static List<Product> getProductByTypeOrKeyWord(String word) {
+	public List<Product> getProductByTypeOrKeyWord(String word) {
 		List<Product> products = new LinkedList<Product>();
 		for(Product objProduct: list) {
 			if(objProduct.getType().toString().contains(word) ||
@@ -97,7 +95,7 @@ public class ModelProduct {
 		return products;
 	}
 	
-	public static List<Product> getProductByPriceRange(double minValue, double maxValue){
+	public List<Product> getProductByPriceRange(double minValue, double maxValue){
 		List<Product> products = new LinkedList<Product>();
 		for(Product objProduct: list) {
 			if((objProduct.getPrice() >= minValue) && (objProduct.getPrice() <= maxValue)) {
@@ -105,5 +103,5 @@ public class ModelProduct {
 			}
 		}
 		return products;
-	}
+	}*/
 }

@@ -1,6 +1,10 @@
 package enums;
 
 public enum EnumProduct {
-	Vehicle,
-	Building
+	Apartment,
+	BuildingSit,
+	House,
+	CommercialBuilding,
+	Car,
+	Motorcycle
 }

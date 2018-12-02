@@ -8,6 +8,7 @@ public class Product {
 	protected EnumProduct type;
 	protected double price;
 	protected String description;
+	protected String address;
 
 	public Product(String idSale, String id, EnumProduct type, double price, String description) {
 		this.idSale = idSale;
@@ -58,13 +59,36 @@ public class Product {
 		this.description = description;
 	}
 	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
 	public String getProduct() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("IdSale: " + this.idSale).append("\n");
-		sb.append("ID: " + this.id).append("\n");
-		sb.append("ProductType: " + this.type).append("\n");
-		sb.append("Price" + this.price).append("\n");
-		sb.append("Description" + this.description).append("\n");
-		return sb.toString();
+		try {
+			if(getAddress() == null) {
+				StringBuilder sb = new StringBuilder();
+				sb.append("IdSale: " + this.idSale).append("\n");
+				sb.append("ID: " + this.id).append("\n");
+				sb.append("ProductType: " + this.type).append("\n");
+				sb.append("Price: " + this.price).append("\n");
+				sb.append("Description: " + this.description).append("\n");
+				return sb.toString();
+			}
+			StringBuilder sb = new StringBuilder();
+			sb.append("IdSale: " + this.idSale).append("\n");
+			sb.append("ID: " + this.id).append("\n");
+			sb.append("ProductType: " + this.type).append("\n");
+			sb.append("Price: " + this.price).append("\n");
+			sb.append("Description: " + this.description).append("\n");
+			sb.append("Address: " + this.address).append("\n");
+			return sb.toString();
+			
+		} catch(java.lang.NullPointerException e) {
+			return "";
+		}
 	}
 }
