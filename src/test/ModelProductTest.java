@@ -58,6 +58,10 @@ class ModelProductTest {
 		double minValue3 =  product1.getPrice() - 1;
 		double maxValue3 = product1.getPrice();		
 		assertTrue(ModelProduct.getProductByPriceRange(minValue3, maxValue3).size() > 0 );
+		
+		double minValue4 =  product1.getPrice() + 1;
+		double maxValue4 = product1.getPrice() + 2;
+		assertFalse(ModelProduct.getProductByPriceRange(minValue4, maxValue4).size() > 0 );
 	}
 	
 	@Test
