@@ -68,32 +68,32 @@ public class ControllerUser {
 		   switch (optionCadaster) {
 		   case 1: 
 			   System.out.print("Informe o nome de acesso: ");
-			   String username = in.nextLine();
+			   String username = in.next();
 			   System.out.print("Informe a senha: ");
-			   String password = in.nextLine();
+			   String password = in.next();
 			   EnumUser usertype = EnumUser.Client;
 			   System.out.print("Informe a id:  ");
-			   String id = in.nextLine();
+			   String id = in.next();
 			   System.out.print("Informe o nome:  ");
-			   String name = in.nextLine();
+			   String name = in.next();
 			   System.out.print("Informe o CPF/CNPJ:  ");
-			   String cnpjCpf = in.nextLine();
+			   String cnpjCpf = in.next();
 			   
 			   User client = new User(username, password, usertype, id, name, cnpjCpf);
 			   ModelUser.addUser(client);
 			   break;
 		   case 2: 
 			   System.out.print("Informe o nome de acesso:  ");
-			   String username1 = in.nextLine();
+			   String username1 = in.next();
 			   System.out.print("Informe a senha:  ");
-			   String password1 = in.nextLine();
+			   String password1 = in.next();
 			   EnumUser usertype1 = EnumUser.Admin;
 			   System.out.print("Informe a id:  ");
-			   String id1 = in.nextLine();
+			   String id1 = in.next();
 			   System.out.print("Informe o nome:  ");
-			   String name1 = in.nextLine();
+			   String name1 = in.next();
 			   System.out.print("Informe o CPF/CNPJ:  ");
-			   String cnpjCpf1 = in.nextLine();
+			   String cnpjCpf1 = in.next();
 			   
 			   User admin = new User(username1, password1, usertype1, id1, name1, cnpjCpf1);
 			   ModelUser.addUser(admin);
@@ -110,16 +110,16 @@ public class ControllerUser {
 	public static void menuUpdate() {
 
 		   System.out.print("Informe o nome de acesso:  ");
-		   String username = in.nextLine();
+		   String username = in.next();
 		   System.out.print("Informe a senha:  ");
-		   String password = in.nextLine();
+		   String password = in.next();
 		   EnumUser usertype = EnumUser.Client;
 		   System.out.print("Informe a id:  ");
-		   String id = in.nextLine();
+		   String id = in.next();
 		   System.out.print("Informe o nome:  ");
-		   String name = in.nextLine();
+		   String name = in.next();
 		   System.out.print("Informe o CPF/CNPJ:  ");
-		   String cnpjCpf = in.nextLine();
+		   String cnpjCpf = in.next();
 		   
 		   User change = new User(username, password, usertype, id, name, cnpjCpf);
 		   ModelUser.addUser(change);
@@ -127,7 +127,7 @@ public class ControllerUser {
 	
 	public static void menuRemove() {
 		 System.out.print("Informe o id:  ");
-		 String idRemove = in.nextLine();
+		 String idRemove = in.next();
 		 ModelUser.removeUser(idRemove);
 	}
 	

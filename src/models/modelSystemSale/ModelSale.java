@@ -60,7 +60,7 @@ public class ModelSale {
 		if (list.size() > 0) {
 			return list;
 		} 
-		System.out.println("Sem Leilões");
+		//System.out.println("Sem Leilões");
 		return list;
 	}
 	

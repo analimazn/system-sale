@@ -52,12 +52,12 @@ public class ControllerFinancial {
 	
 	public static void menuCadaster() {
 		       System.out.print("Informe o id: ");
-			   String id = in.nextLine();
+			   String id = in.next();
 			   System.out.println();
 			   System.out.print("Informe o CNPJ: ");
-			   String cnpj = in.nextLine();			   
+			   String cnpj = in.next();			   
 			   System.out.print("Informe a razão social:  ");
-			   String socialReason = in.nextLine();			  
+			   String socialReason = in.next();			  
 			   
 			   Financial financial = new Financial(id, cnpj, socialReason);					  
 			   ModelFinancial.addFinancial(financial);			   
@@ -65,12 +65,12 @@ public class ControllerFinancial {
 	
 	public static void menuUpdate() {
 		  System.out.print("Informe o id: ");
-		   String id = in.nextLine();
+		   String id = in.next();
 		   System.out.println();
 		   System.out.print("Informe o CNPJ: ");
-		   String cnpj = in.nextLine();			   
+		   String cnpj = in.next();			   
 		   System.out.print("Informe a razão social:  ");
-		   String socialReason = in.nextLine();			  
+		   String socialReason = in.next();			  
 		   
 		   Financial change = new Financial(id, cnpj, socialReason);		
 		   ModelFinancial.addFinancial(change);
@@ -78,7 +78,7 @@ public class ControllerFinancial {
 
 	public static void menuRemove() {
 		 System.out.print("Informe o id:  ");
-		 String idRemove = in.nextLine();
+		 String idRemove = in.next();
 		 ModelFinancial.removeFinancial(idRemove);
 	}
 	
