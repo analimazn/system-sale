@@ -49,14 +49,16 @@ public class ModelSale {
 		return null;
 	}
 	
-	public static void getListSale() {
+	public static List<Sale> getListSale() {
 		if (list.size() > 0) {
 			System.out.println("Todos os leilões");
 			for(Sale obj: list) {
 				System.out.println(obj.getSale());
 			}
+			return list;
 		} else {
 			System.out.println("Sem Leilões");
+			return null;
 		}
 	}
 	
@@ -96,13 +98,12 @@ public class ModelSale {
 	}
 	
 	public static void exportFile(List<Sale> list) throws IOException {
-		PrintWriter writer = new PrintWriter(new FileWriter(".files/sale_" +LocalDate.now().toString()+".det"  ));
-		for (Sale salesObj: list) {
-			writer.println(salesObj.toString());
-			writer.println("--------------------------------------");
-		}
+			PrintWriter writer = new PrintWriter(new FileWriter("src/files/sale_" +LocalDate.now().toString()+".det"  ));
+			for (Sale salesObj: list) {
+				writer.println(salesObj.getSale());
+				writer.println("--------------------------------------");				
+				
+			}
+			writer.close();
 	}
-			
-
-	
 }
