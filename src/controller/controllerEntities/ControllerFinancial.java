@@ -3,10 +3,7 @@ package controller.controllerEntities;
 import java.util.Scanner;
 
 import entities.Financial;
-import entities.User;
-import enums.EnumUser;
 import models.modelEntities.ModelFinancial;
-import models.modelEntities.ModelUser;
 
 public class ControllerFinancial {
 	
