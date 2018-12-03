@@ -201,7 +201,9 @@ public class Sale {
 		sb.append("Status: " + this.status).append("\n");
 		sb.append("Proposal String: " + this.proposalDateBid).append("\n");
 		sb.append("Opening String: " + this.openingDateBid).append("\n");
-		sb.append("Products\n" + this.products).append("\n");
+		for (Product product : products) {
+			sb.append("Products:\n" + product.getProduct()).append("\n");	
+		};		
 		sb.append("Address\n" + this.address).append("\n");
 		sb.append("Financial\n" + this.financial);
 		return sb.toString();
