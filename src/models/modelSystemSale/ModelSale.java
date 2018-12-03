@@ -1,8 +1,12 @@
 package models.modelSystemSale;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
+
 import systemSale.Sale;
 import enums.EnumStatus;
 
@@ -90,7 +94,15 @@ public class ModelSale {
 		else
 			return EnumStatus.Open.toString();
 	}
-		
+	
+	public static void exportFile(List<Sale> list) throws IOException {
+		PrintWriter writer = new PrintWriter(new FileWriter(".files/sale_" +LocalDate.now().toString()+".det"  ));
+		for (Sale salesObj: list) {
+			writer.println(salesObj.toString());
+			writer.println("--------------------------------------");
+		}
+	}
+			
 
 	
 }
