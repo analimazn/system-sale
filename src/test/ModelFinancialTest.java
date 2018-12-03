@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import entities.Financial;
 import models.modelEntities.ModelFinancial;
 
-
 class ModelFinancialTest {
 
 	Financial financial1;
@@ -34,8 +33,5 @@ class ModelFinancialTest {
 		ModelFinancial.removeFinancial(financial2.getId());		
 		assertEquals(false, ModelFinancial.validateFinancial(financial2));		
 	}
-	
-	
-			
 
 }

@@ -1,0 +1,41 @@
+Id: 01
+Status: Open
+Proposal String: 2018-12-25
+Opening String: 2018-12-25
+
+Products:
+IdSale: 01
+ID: 001
+ProductType: Apartment
+Price: 22.0
+Description: testeprod
+Address: Street: rua dois
+Number: 40
+City: city1
+State: sp
+Zip Code: 12222
+
+Products:
+IdSale: 01
+ID: 002
+ProductType: Apartment
+Price: 22.0
+Description: testeprod
+
+Products:
+IdSale: 01
+ID: 003
+ProductType: Apartment
+Price: 22.0
+Description: teste
+Address
+Street: rua dois
+Number: 40
+City: city1
+State: sp
+Zip Code: 12222
+Financial
+Razão Social: teste
+CNPJ: 33333
+
+--------------------------------------
