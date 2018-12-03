@@ -130,6 +130,7 @@ public class ControllerSale {
 		 Sale sale = new Sale(id, LocalDate.of(ano_fechamento, mes_fechamento, dia_fechamento),
 				 LocalDate.of(ano_abertura, mes_abertura, dia_abertura),
 				 address.getAddress(), financial.getFinancial(), EnumStatus.Open);
+		sale.setStatus(ModelSale.getStatus(sale));
 		ModelSale.addSale(sale);
 	}
 
@@ -178,7 +179,8 @@ public class ControllerSale {
 		 Financial financial = new Financial(cidade_ent, cnpj, socialReason);
 		 Sale change = new Sale(id, LocalDate.of(ano_fechamento, mes_fechamento, dia_fechamento),
 				 LocalDate.of(ano_abertura, mes_abertura, dia_abertura),
-				 address.getAddress(), financial.getFinancial(), EnumStatus.Open);
+				 address.getAddress(), financial.getFinancial(), EnumStatus.Open); 
+		         change.setStatus(ModelSale.getStatus(change));
 		ModelSale.updateSale(change);
 	}
 	
