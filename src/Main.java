@@ -21,7 +21,7 @@ public class Main {
 		Address address = new Address("rua dois", 40, "city1", "sp", "12222");
 		Financial finacial1 = new Financial("001", "33333", "teste");
 		Sale sale1 = new Sale("01", LocalDate.of(2018, 12, 25),  LocalDate.of(2018, 12, 25), address.getAddress(), finacial1.getFinancial(), EnumStatus.Open);
-		Sale sale2 = new Sale("01",  LocalDate.of(2018, 12, 25),  LocalDate.of(2018, 12, 25), address.getAddress(), finacial1.getFinancial(), EnumStatus.Open);
+		Sale sale2 = new Sale("02",  LocalDate.of(2018, 12, 25),  LocalDate.of(2018, 12, 25), address.getAddress(), finacial1.getFinancial(), EnumStatus.Open);
 		 
 		Product prod1 = new Product(sale1.getId(), "001", EnumProduct.Apartment, 22.00, "testeprod");
 		Product prod2 = new Product(sale1.getId(), "002", EnumProduct.Apartment, 22.00, "testeprod");
@@ -43,7 +43,13 @@ public class Main {
 		sale1.addBid(bid1);
 		sale1.addBid(bid2);
 		sale1.addBid(bid3);
-		sale1.getProducts();
+		//sale1.sortBid().forEach(bid -> System.out.println(bid.getBid()));
+		//sale1.getProducts();
+		
+		//ModelSale.addSale(sale1);
+		//ModelSale.addSale(sale2);
+		//ModelSale.getListSale();
+		
 
 
 		
@@ -54,8 +60,11 @@ public class Main {
 		//sale1.getProductByPriceRange(10.00, 30.00).forEach(prod -> System.out.println(prod.getProduct()));;
 		//sale1.getProducts();
 		
-		//ModelSale.addSale(sale1);
-		//ModelSale.addSale(sale2);
+		ModelSale.addSale(sale1);
+		ModelSale.addSale(sale2);
+		ModelSale.getWin(sale1).keySet().forEach(keys -> System.out.println("WIN \n" + keys.getUser()));
+		ModelSale.getWin(sale1).values().forEach(values -> System.out.println("PRODUCT \n" + values.getProduct()));
+		
 
 		//ModelSale.getListSale();
 

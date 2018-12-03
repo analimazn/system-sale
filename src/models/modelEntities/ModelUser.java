@@ -11,12 +11,10 @@ public class ModelUser {
 		for(User user : list) {
 		   if(user.getId().equals(objUser.getId())) {
 			   System.out.println("Usuário encontrado");
-			   System.out.println(objUser.getUser());
 			   return true;
 		    }
 		}
 		System.out.println("Usuário não encontrado");
-		System.out.println(objUser.getUser());
 		return false;
 	}
 	
@@ -24,7 +22,6 @@ public class ModelUser {
 		if(!validateUser(objUser)) {
 			list.add(objUser);
 			System.out.println("Usuário cadastrado com sucesso");
-			System.out.println(objUser.getUser());
 		} else {
 			System.out.println("Usuário não cadastrado");
 		}
@@ -45,15 +42,12 @@ public class ModelUser {
 		return null;
 	}
 	
-	public static void getListUser() {
+	public static List<User> getListUser() {
 		if (list.size() > 0) {
-			System.out.println("Todos os usuários");
-			for(User objUser : list) {
-				System.out.println(objUser.getUser());
-			}
-		} else {
-			System.out.println("Sem usuários");
+			return list;
 		}
+		System.out.println("Sem usuários");
+		return list;
 	}
 	
 	public static void updateUser(User change) {

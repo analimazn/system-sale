@@ -3,6 +3,7 @@ package models.modelEntities;
 import java.util.List;
 import java.util.LinkedList;
 import entities.Financial;
+import entities.User;
 
 public class ModelFinancial {
 	static List<Financial> list = new LinkedList<Financial>();
@@ -11,12 +12,10 @@ public class ModelFinancial {
 		for(Financial financial : list) {
 		   if(financial.getFinancial().equals(objFinancial.getFinancial())) {
 			   System.out.println("Instituição Financeira encontrada");
-			   System.out.println(financial.getFinancial());
 			   return true;
 		    }
 		}
 		System.out.println("Instituição Financeira não encontrada");
-		System.out.println(objFinancial.getFinancial());
 		return false;
 	}
 	
@@ -24,7 +23,6 @@ public class ModelFinancial {
 		if(!validateFinancial(objFinancial)) {
 			list.add(objFinancial);
 			System.out.println("Instituição Financeira cadastrada com sucesso");
-			System.out.println(objFinancial.getFinancial());
 		} else {
 			System.out.println("Instituição Financeira não cadastrada");
 		}
@@ -45,15 +43,12 @@ public class ModelFinancial {
 		return null;
 	}
 	
-	public static void getListFinancial() {
+	public static List<Financial> getListFinancial() {
 		if (list.size() > 0) {
-			System.out.println("Todas as Instituições Financeiras");
-			for(Financial objFinancial : list) {
-				System.out.println(objFinancial.getFinancial());
-			}
-		} else {
-			System.out.println("Sem Instituições Financeiras");
-		}
+			return list;
+		} 
+		System.out.println("Sem Instituições Financeiras");
+		return list;
 	}
 	
 	public static void updateFinancial(Financial change) {

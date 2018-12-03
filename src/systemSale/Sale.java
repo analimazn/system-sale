@@ -1,10 +1,8 @@
 package systemSale;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import products.Product;
 import enums.EnumStatus;
@@ -78,15 +76,10 @@ public class Sale {
 	}
 	
 	public List<Product> getProducts() {
-		System.out.println("get all products\n");
 		if (!products.isEmpty()) {
-			System.out.println("Todos os Produtos");
-			for(Product obj: products) {
-				System.out.println(obj.getProduct());
-			}
-		} else {
-			System.out.println("Sem Produtos");
+			return products;
 		}
+		System.out.println("Sem Produtos");
 		return products;
 	}
 
@@ -122,7 +115,6 @@ public class Sale {
 	}
 	
 	public Product findProduct(String id) {
-		System.out.println("find product\n");
 		products.stream()
 			.filter(obj -> {
 				if(obj.getId() == id) {
@@ -138,14 +130,11 @@ public class Sale {
 	}
 	
 	public Product updateProduct(Product change) {
-		System.out.println("update product\n");
 		for (Product obj : products) {
 			if (obj.getId() == change.getId()) {
 				System.out.println("Atualizar Produto");
-				System.out.println(obj.getProduct());
 				products.set(products.indexOf(obj), change);
 				System.out.println("Produto atualizado");
-				System.out.println(change.getProduct());
 				return obj;
 			}  else {
 				System.out.println("Produto năo encontrado no sistema");
@@ -179,7 +168,6 @@ public class Sale {
 	}
 	
 	public List<Product> getProductByPriceRange(double minValue, double maxValue){
-		System.out.println("get product by price range\n");
 		List<Product> searchMinMax = new LinkedList<Product>();
 		for(Product obj: products) {
 			if((minValue <= obj.getPrice() ) && (maxValue >= obj.getPrice() ))
@@ -208,18 +196,32 @@ public class Sale {
 		}
 	}
 	
-	public Boolean addBid(Bid obj) {
+	public void addBid(Bid obj) {
 		if(validateBid(obj)) {
 			System.out.println("Lance computado com sucesso");
-			bids.add(obj);
-			
-			bids.forEach(bid -> System.out.println(bid.getBid()));
-			return true;
+			bids.add(obj);			
+		} else {
+			System.out.println("Lance inválido");		
 		}
-		System.out.println(bids);
-		System.out.println("Lance inválido");
-		return null;
+	}
+	
+	public List<Bid> sortBid(){
+		List<Bid> sortedBids =new LinkedList<Bid>();
+		bids
+			.stream()
+				.sorted((o1, o2) -> o1.getTime()
+						.compareTo(o2.getTime()))
+				.forEach(sort -> sortedBids.add(sort));
 		
+		return sortedBids;
+	}
+	
+	public List<Bid> getBids() {
+		if (!bids.isEmpty()) {
+			return bids;
+		} 
+		System.out.println("Sem lances");
+		return null;
 	}
 	
 	public String getSale() {
