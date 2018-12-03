@@ -120,17 +120,17 @@ public class ModelSale {
 		return win;
 	}
 	
-	public static String getStatus(Sale sale) {		
+	public static EnumStatus getStatus(Sale sale) {		
 		LocalDate now = LocalDate.now();
 		
 		if((now.isAfter(sale.getOpeningDateBid()))&&(now.isBefore(sale.getProposalDateBid()))) {
-			return EnumStatus.Occurring.toString();
+			return EnumStatus.Occurring;
 		}
 		if(now.isAfter(sale.getProposalDateBid())) {
-			return EnumStatus.Finalized.toString();
+			return EnumStatus.Finalized;
 		}
 		else
-			return EnumStatus.Open.toString();
+			return EnumStatus.Open;
 	}
 	
 	public static void exportFile(List<Sale> list) throws IOException {
