@@ -11,20 +11,20 @@ public class ModelFinancial {
 	public static Boolean validateFinancial(Financial objFinancial) {
 		for(Financial financial : list) {
 		   if(financial.getFinancial().equals(objFinancial.getFinancial())) {
-			   System.out.println("Institui√ß√£o Financeira encontrada");
+			   System.out.println("InstituiÁ„o Financeira encontrada");
 			   return true;
 		    }
 		}
-		System.out.println("Institui√ß√£o Financeira n√£o encontrada");
+		System.out.println("InstituiÁ„o Financeira n„o encontrada");
 		return false;
 	}
 	
 	public static void addFinancial(Financial objFinancial) {
 		if(!validateFinancial(objFinancial)) {
 			list.add(objFinancial);
-			System.out.println("Institui√ß√£o Financeira cadastrada com sucesso");
+			System.out.println("InstituiÁ„o Financeira cadastrada com sucesso");
 		} else {
-			System.out.println("Institui√ß√£o Financeira n√£o cadastrada");
+			System.out.println("InstituiÁ„o Financeira n„o cadastrada");
 		}
 	}
 	
@@ -37,7 +37,7 @@ public class ModelFinancial {
 				return false;
 			})
 			.forEach(objFinancial -> {
-				System.out.println("Institui√ß√£o Financeira");
+				System.out.println("InstituiÁ„o Financeira");
 				System.out.println(objFinancial.getFinancial());
 			});
 		return null;
@@ -47,7 +47,7 @@ public class ModelFinancial {
 		if (list.size() > 0) {
 			return list;
 		} 
-		System.out.println("Sem Institui√ß√µes Financeiras");
+		//System.out.println("Sem Institui√ß√µes Financeiras");
 		return list;
 	}
 	
@@ -55,21 +55,21 @@ public class ModelFinancial {
 		for (Financial objFinancial : list) {
 			if (validateFinancial(objFinancial) && objFinancial.getId()
 					.equals(change.getId())) {
-				System.out.println("Atualizar Institui√ß√£o Financeira");
+				System.out.println("Atualizar InstituiÁ„o Financeira");
 				System.out.println(objFinancial.getFinancial());
 				list.set(list.indexOf(objFinancial), change);
 			}  else {
-				System.out.println("Institui√ß√£o Financeira n√£o encontrada no sistema");
+				System.out.println("InstituiÁ„o Financeira n„o encontrada no sistema");
 			}
 		}
-		System.out.println("Institui√ß√£o Financeira atualizada");
+		System.out.println("InstituiÁ„o Financeira atualizada");
 		System.out.println(change.getFinancial());
 	}
 	
 	public static void removeFinancial(String id) {
 		for (Financial objFinancial : list) {
 			if (validateFinancial(objFinancial) && objFinancial.getId().equals(id)) {
-				System.out.println("Remover Institui√ß√£o Financeira");
+				System.out.println("Remover InstituiÁ„o Financeira");
 				System.out.println(objFinancial.getFinancial());
 				list.remove(objFinancial);
 			} 
