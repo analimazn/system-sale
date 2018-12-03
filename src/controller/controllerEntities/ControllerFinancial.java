@@ -53,6 +53,7 @@ public class ControllerFinancial {
 	public static void menuCadaster() {
 		       System.out.print("Informe o id: ");
 			   String id = in.nextLine();
+			   System.out.println();
 			   System.out.print("Informe o CNPJ: ");
 			   String cnpj = in.nextLine();			   
 			   System.out.print("Informe a razão social:  ");
@@ -63,8 +64,9 @@ public class ControllerFinancial {
 	}
 	
 	public static void menuUpdate() {
-		 System.out.print("Informe o id: ");
+		  System.out.print("Informe o id: ");
 		   String id = in.nextLine();
+		   System.out.println();
 		   System.out.print("Informe o CNPJ: ");
 		   String cnpj = in.nextLine();			   
 		   System.out.print("Informe a razão social:  ");
@@ -88,6 +90,9 @@ public class ControllerFinancial {
 				   for (Financial objUser: ModelFinancial.getListFinancial() ) {
 					   System.out.println("                       "+ objUser.getId() +" - "+ objUser.getSocialReason());
 				   }
+			   }
+			   else {
+				   System.out.println("                       Nenhuma entidade cadastrada                    ");
 			   }
 		   }
 		   catch (java.lang.NullPointerException e) {
