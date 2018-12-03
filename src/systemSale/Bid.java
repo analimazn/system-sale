@@ -1,23 +1,32 @@
 package systemSale;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
-import entities.User;
 import products.Product;
-import systemSale.Sale;
 
 public class Bid {
 	private String id;
+	private String product;
 	private double value;
-	private LocalTime time;
-	private Sale sale;
-	private User client;
+	private LocalDateTime time;
+	private String sale;
+	private String client;
 	
-	public Bid(String id,  double value, LocalTime time, Sale sale, Product product,  User client) {
+	public Bid(String id, String product, double value, LocalDateTime time, String sale, String client) {
 		this.id = id;
+		this.product = product;
 		this.value = value;
 		this.time = time;
 		this.sale = sale;
 		this.client = client;
+	}
+
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
 	}
 
 	public double getValue() {
@@ -28,11 +37,11 @@ public class Bid {
 		this.value = value;
 	}
 
-	public LocalTime getTime() {
+	public LocalDateTime getTime() {
 		return time;
 	}
 
-	public void setTime(LocalTime time) {
+	public void setTime(LocalDateTime time) {
 		this.time = time;
 	}
 	
@@ -43,25 +52,26 @@ public class Bid {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public Sale getSale() {
+	public String getSale() {
 		return sale;
 	}
 
-	public void setSale(Sale sale) {
+	public void setSale(String sale) {
 		this.sale = sale;
 	}
 
-	public User getClient() {
+	public String getClient() {
 		return client;
 	}
 
-	public void setClient(User client) {
+	public void setClient(String client) {
 		this.client = client;
 	}
 	
 	public String getBid() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Id: " + this.id).append("\n");
+		sb.append("Product: " + this.product).append("\n");
 		sb.append("Value: " + this.value).append("\n");
 		sb.append("Time: " + this.time).append("\n");
 		sb.append("Client: " + this.client).append("\n");

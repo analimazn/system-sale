@@ -9,7 +9,7 @@ public class ModelUser {
 	
 	public static Boolean validateUser(User objUser) {
 		for(User user : list) {
-		   if(user.getUser().equals(objUser.getUser())) {
+		   if(user.getId().equals(objUser.getId())) {
 			   System.out.println("Usuário encontrado");
 			   System.out.println(objUser.getUser());
 			   return true;

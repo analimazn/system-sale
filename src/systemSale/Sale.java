@@ -1,8 +1,10 @@
 package systemSale;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import products.Product;
 import enums.EnumStatus;
@@ -43,14 +45,6 @@ public class Sale {
 		this.status = status;
 	}
 	
-	public List<Bid> getBids() {
-		return bids;
-	}
-
-	public void setClients(List<Bid> bids) {
-		this.bids = bids;
-	}
-
 	public LocalDate getProposalDateBid() {
 		return proposalDateBid;
 	}
@@ -128,19 +122,19 @@ public class Sale {
 	}
 	
 	public Product findProduct(String id) {
-	System.out.println("find product\n");
-	products.stream()
-		.filter(obj -> {
-			if(obj.getId() == id) {
-				return obj != null;
-			}
-			return false;
-		})
-		.forEach(obj -> {
-			System.out.println("Produto");
-			System.out.println(obj.getProduct());
-		});
-	return null;
+		System.out.println("find product\n");
+		products.stream()
+			.filter(obj -> {
+				if(obj.getId() == id) {
+					return obj != null;
+				}
+				return false;
+			})
+			.forEach(obj -> {
+				System.out.println("Produto");
+				System.out.println(obj.getProduct());
+			});
+		return null;
 	}
 	
 	public Product updateProduct(Product change) {
@@ -193,6 +187,39 @@ public class Sale {
 				searchMinMax.add(obj);
 		}
 		return searchMinMax;
+	}
+	
+	public Boolean validateBid(Bid obj) {
+		try {
+			if(products.isEmpty()) {
+				return false;
+			} else {
+				for(Product prod : products) {
+					if(prod.getId().equals(obj.getProduct()) && obj.getValue() > prod.getPrice()) {
+						prod.setPrice(obj.getValue());
+						return true;
+					} return false;
+				}
+				return null;
+			}			
+		} catch(java.lang.NullPointerException e) {
+			System.out.println("Nao há nada na lista");
+			return false;
+		}
+	}
+	
+	public Boolean addBid(Bid obj) {
+		if(validateBid(obj)) {
+			System.out.println("Lance computado com sucesso");
+			bids.add(obj);
+			
+			bids.forEach(bid -> System.out.println(bid.getBid()));
+			return true;
+		}
+		System.out.println(bids);
+		System.out.println("Lance inválido");
+		return null;
+		
 	}
 	
 	public String getSale() {

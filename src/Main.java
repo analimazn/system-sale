@@ -3,14 +3,15 @@ import enums.EnumStatus;
 import enums.EnumUser;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
 import entities.*;
 import models.modelEntities.*;
-import models.modelProducts.*;
 import models.modelSystemSale.*;
 import products.*;
+import systemSale.Bid;
 import systemSale.Sale;
 import utils.Address;
 
@@ -25,12 +26,26 @@ public class Main {
 		Product prod1 = new Product(sale1.getId(), "001", EnumProduct.Apartment, 22.00, "testeprod");
 		Product prod2 = new Product(sale1.getId(), "002", EnumProduct.Apartment, 22.00, "testeprod");
 		Product prod3 = new Product(sale1.getId(), "003", EnumProduct.Apartment, 22.00, "teste");
-		Product prod1change = new Product(sale1.getId(), "001", EnumProduct.BuildingSit, 22.00, "teste");
+		
+		User user1 = new User("analimazn", "1234", EnumUser.Client, "003", "Ana", "3333");
+		User user2 = new User("joao", "1234", EnumUser.Client, "004", "joao", "3333");
+		ModelUser.addUser(user1);
+		ModelUser.addUser(user2);
 
 		prod1.setAddress(address.getAddress());
 		sale1.addProduct(prod1);
 		sale1.addProduct(prod2);
 		sale1.addProduct(prod3);
+		
+		Bid bid1 = new Bid("001", prod1.getId(), 230.00, LocalDateTime.now(), sale1.getId(), user1.getId());
+		Bid bid2 = new Bid("001", prod1.getId(), 260.00, LocalDateTime.now(), sale1.getId(), user1.getId());
+		Bid bid3 = new Bid("001", prod1.getId(), 220.00, LocalDateTime.now(), sale1.getId(), user2.getId());
+		sale1.addBid(bid1);
+		sale1.addBid(bid2);
+		sale1.addBid(bid3);
+		sale1.getProducts();
+
+
 		
 		//sale1.findProduct("001");
 		//sale1.updateProduct(prod1change);
@@ -39,10 +54,10 @@ public class Main {
 		//sale1.getProductByPriceRange(10.00, 30.00).forEach(prod -> System.out.println(prod.getProduct()));;
 		//sale1.getProducts();
 		
-		ModelSale.addSale(sale1);
-		ModelSale.addSale(sale2);
+		//ModelSale.addSale(sale1);
+		//ModelSale.addSale(sale2);
 
-		ModelSale.getListSale();
+		//ModelSale.getListSale();
 
 	}
 
